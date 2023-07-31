@@ -1,3 +1,5 @@
+# The Command Line - Appendix
+
 ### Command Line Applications
 
 Because of its origins as an operating system, there are many command line tools that behave like windowing applications, such as text editors and various kinds of viewers. The limitations of command line graphics mean they can only show text, and you can only control them using the keyboard.
@@ -19,13 +21,19 @@ Because use of the command line is a sequence of instructions, it's possible to 
 Scripting for the command line is a programming language in its own right, way outside the scope of this course. Scripts offer some features to control the behaviour of the command line that would be redundant when typing commands directly, and complex scripts can be hundreds of lines of terse code. It's good practice to make liberal use of comments (using `#`) to describe what your scripts do. This is particularly the case for future you, looking at the script months or years after you wrote it.
 
 For your purposes today, it's enough to know that scripts exist. If you ever need to run a script someone else has made, you do so as you would run a command:
+
 `$ ./some_script.sh`
+
 You need the `./` at the front to tell the command line that you want to run that specific script, rather than have it search for a command by that name in its internal libraries.
 
 UNIX and its derivatives have a permission system that controls who can read and write files and who can view directories and run commands. You might find, when running a script, that you receive an error similar to:
+
 `permission denied error.`
+
 This means that the script has not been set up to allow you to run it. The simplest way of fixing this is by using the command:
+
 `$ chmod u+x ./some_script.sh`
+
 You don't need to sweat the details as to how this works, as a description of the permissions system is also beyond the scope of this course.
 
 #### Queues

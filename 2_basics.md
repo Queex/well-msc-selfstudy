@@ -6,7 +6,9 @@ These examples assume you are using bash for the command line, but should steer 
 ### The Command Prompt
 
 When you log in, you will usually see the 'message of the day'. This was more of a thing back when these messages were changed regularly with news about the computing facilities. The meaningful part is the command prompt:
+
 `$`
+
 This is what the command line shows when it is ready to receive input.
 
 Once you type a command and press Enter, the command line will execute it, display any output, and when it is finished it will show you the prompt again. If the processing takes a long time, it can be a while before you get back to the prompt.
@@ -14,13 +16,17 @@ Once you type a command and press Enter, the command line will execute it, displ
 It's common in tutorials like this to include this prompt in the examples of commands, **but you do not need to type it**. It's there as a reminder that the example is for the command line.
 
 Try the command:
+
 `$ echo "Look at me"`
+
 (Remember you don't have to type the $)
 
 The `echo` command simply echoes input text back as output.
 
 The command line is **case sensitive**, that is, capitalisation matters. It's usual for everything to be in lower case, both commands and file names, to help avoid errors. If you accidentally type:
+
 `$ Echo "Look at me"`
+
 You will see an error similar to:
 ```
 Command 'Echo' not found, did you mean:
@@ -52,7 +58,9 @@ Files on computers are stored in a nested series of **directories** (or folders)
 On some platforms, this **working directory** appears before the prompt symbol, so you don't forget where you are.
 
 Try the command:
+
 `$ pwd`
+
 This stands for 'print working directory'. Very short abbreviations for commands is common in bash.
 
 You'll see what is called an **absolute path** to your working directory. If you compare this with what appears before the prompt, you'll see that only the last part of the absolute path is shown, for brevity.
@@ -60,11 +68,15 @@ You'll see what is called an **absolute path** to your working directory. If you
 When you first log in, your working directory is probably your **home directory**. This is a directory on the system that's exclusively for your use, similar to 'My Documents' on windows..
 
 Try the command:
+
 `$ cd ..`
+
 This stands for 'change directory'. Don't worry about what the '..' means yet. This command is used to navigate the directory structure, changing your working directory as you go. The command you just ran has changed to one directory 'up'.
 
 Repeat the command:
+
 `$ pwd`
+
 You can see that the last directory in the chain is no longer there.
 
 ### Special symbols
