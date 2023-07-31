@@ -20,10 +20,12 @@ A **terminal** window is how you can access the command line. You can have multi
 
 ## Why use the command line?
 
-- Some tasks are **quicker** to perform using the command line than with a graphical user interface.
-- You can keep a **record** of your commands in a text file, which allows you to **reproduce** the steps exactly,or **copy** them to make alterations for a similar task.
+- Some tasks are **quicker** to perform using the command line than with a graphical user interface (GUI).
+- You can keep a **record** of your commands in a text file, which allows you to **reproduce** the steps exactly, or **copy** them to make alterations for a similar task.
 - The command line is used for a lot of **automation**, setting programs to run automatically one after the other, and for computing clusters and cloud computing.
 - Many **bioinformatics tools** run primarily from the command line.
+
+Like any other piece of software, the command line is the right tool for certain jobs. Learning how to use can save you a lot of time in the long run.
 
 ## Where is the command line?
 
@@ -31,11 +33,11 @@ A **terminal** window is how you can access the command line. You can have multi
 
 **Mac OS X** computers also already have a terminal built-in (the operating system is a UNIX-like one behind the scenes). You can find it in Applications/Utilities/Terminal. Drag into your dock to make it easily available. Some minor details differ between this shell and the default Linux one, but they shouldn't 
 
-For **Windows** computers, you can install something called the **Linux Subsystem for Windows** (WSL). This installs a complete Linux system you can access from within Windows. Windows's own command line tools, 'cmd.exe' and 'powershell.exe', work differently to the examples here and if you accidentally find yourself in one of them, close the window and back away slowly.
+For **Windows** computers, you can install something called the **Windows Subsystem for Linux** (WSL). This installs a complete Linux system you can access from within Windows. Windows's own command line tools, 'cmd.exe' and 'powershell.exe', work differently to the examples here and if you accidentally find yourself in one of them, close the window and back away slowly.
 
 For **all** computers, there are tools that embed terminal windows in an app or browser window. Jupyter notebook is one example. These allow you to put your notes, and your code from different programming languages, alongside each other in a single document. This lets you keep all the information for a particular project in one place, rather than spread out across multiple files.
 
-When using a **high performance computing** cluster or a **cloud computing** product, it's common to need to log in to the terminal of that system, and use the command line to interact with it..
+When using a **high performance computing** cluster or a **cloud computing** product, it's common to need to log in to the terminal of that system, and use the command line to interact with it.
 
 ### Installing the Windows Subsystem for Linux
 
@@ -53,5 +55,29 @@ You will need administrator permissions to install WSL. If you don't have those 
 9. If it doesn't seem to work, you might need to restart your PC one final time and try again.
 
 
-##### Section break and reminder questions
+#### Recap Questions
 
+Multiple-choice questions:
+
+1. The most common UNIX-style shell is:
+   1. zsh
+   2. bash
+   3. Powershell
+   4. Terminal
+2. You can only use the UNIX-style command line on Linux computers.
+   1. True
+   2. False
+3. Compared to using a graphical user interface, the command line is:
+   1. slower
+   2. always faster
+   3. sometimes faster
+4. What is best practice when using the command line:
+   1. Only ever have one terminal window open
+   2. Only do tasks you could also accomplish using the GUI
+   3. Make your commands as cryptic and difficult to understand as possible
+   4. Keep a record of the commands you have used
+5. The built-in option for a UNIX-like command line on Windows is:
+   1. WSL
+   2. LSW
+   3. WLW
+   4. Command.com

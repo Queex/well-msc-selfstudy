@@ -114,7 +114,7 @@ Here are some other simple commands you can try:
 
 You can see that with these simple tools, you can manage files and inspect them. However, you might have noticed that we've not mentioned any way to create a file yet! We'll cover that after these recap exercises.
 
-##### Recap Questions
+#### Recap Questions
 1. If the command line appears to be hanging, what keyboard shortcut would you use to try and get back to the command prompt?
 2. What symbol can you use as shorthand for your home directory?
 3. How many levels up from your current directory does the path `../../../` refer to?

@@ -97,7 +97,7 @@ Here is a list of other commonly-used commands you might find useful. You can lo
 | Command | What it does |
 | --- | --- |
 | `head` | Shows the first few lines of a file. |
-| `tail` | Shows the last few lines of a file. You can combine `head` and `tail` using pipes (`|`) to pull out a specific block of lines from a file. |
+| `tail` | Shows the last few lines of a file. You can combine `head` and `tail` using pipes to pull out a specific block of lines from a file. |
 | `touch` | Changes the accessed and modified time on a file, by default to the current time. If the file doesn't exist, create a blank file. |
 | `which` | Tells you the absolute path of the command you give as an argument. This is useful when there might be multiple versions of the same command available on the system and you need to know exactly which one is used by default. |
 | `sort` | Sorts the lines of a file. |
@@ -106,10 +106,11 @@ Here is a list of other commonly-used commands you might find useful. You can lo
 | `ssh` | Short for 'secure shell', this logs you into a different computer, based on the address you give it. |
 | `scp` | Short for 'secure copy', this allows you to copy files between different computers, providing you have a valid log in for the other computer. There are a number of other protocols for transferring files, but some have fallen into disuse and `scp` is the most widely supported. |
 | `gzip` / `gunzip` | Turns a file into a compressed version of itself (with the `.gz` file extension), or turns a compressed file back into a regular one. Unlike the compression tools you might be used to, this only works on single files, and you cannot put multiple files or directories into a single compressed file using `gzip` alone. **By default, it will delete the input file after compressing or decompressing it.** |
-| `tar` | This takes a number of files and puts them all into the same file (sometimes called an archive - the command is actually named as an abbreviation of 'tape archive'). `tar` can also handle `.gz` compression itself, with the `-z` flag, making `gzip` somewhat redundant.. It's common to see files for download with the combined extension `.tar.gz`. Unlike `gzip`, you use the same command to get the files back out again, just with a different flag, and `tar` does not delete the input file(s). At this point, you might have some inkling as to how programmers got that way, if this is what they have to deal with. |
+| `tar` | This takes a number of files and puts them all into the same file (sometimes called an archive - the command is actually named as an abbreviation of 'tape archive'). `tar` can also handle `.gz` compression itself, with the `-z` flag, making `gzip` somewhat redundant.. It's common to see files for download with the combined extension `.tar.gz`. Unlike `gzip`, you use the same command to get the files back out again, just with a different flag, and `tar` does not delete the input file(s). `tar` also does not behave nicely if you don't specify the output file using the flag `-f`. At this point, you might have some inkling as to how programmers got that way, if this is what they have to deal with. |
 | `cut` | Print certain columns from a text file that's a table of data. |
 | `awk` | Can do similar things to `cut`. It has its own language to specify in more detail how to process the file, which can be tough to learn, but it is more versatile than `cut`. |
-| `sed` | Short for 'stream editor'. It lets you swap out letters or sets of letters in a file for others. This is useful to fix inconsistent data formats or remove characters that another tool can't handle. |
+| `tr` | Short for 'translate'. It lets you replace characters with other characters. This is useful to fix inconsistent data formats or remove characters that another tool can't handle. |
+| `sed` | Short for 'stream editor'. Similar to `tr`, but it also supports more than single characters allowing for more complex replacements. |
 
 ### Globbing
 
@@ -133,7 +134,7 @@ It would not match any of the following:
 - myfile.txt.gz
 Command line tools know how to treat these groups of files sensibly. In the above example, all matching files will be copied into the directory `another_directory`.
 
-You can even use he `*` all by itself, to match every file. For example, if you wanted to remove all the files in a particular directory:
+You can even use the `*` all by itself, to match every file. For example, if you wanted to remove all the files in a particular directory:
 
 `$ rm some_directory/*`
 
@@ -149,7 +150,7 @@ Be aware that because `rm` does not ask for confirmation when it removes files, 
 
 `*` is called a 'wildcard', and this approach to handling multiple files has spread far and wide because it is so useful. There are other wildcards available, but `*` is the most important.
 
-##### Recap Questions
+#### Recap Questions
 Let's try a short practical task, using the commands we've covered.
 1. Download the file: [https://www.well.ox.ac.uk/bioinformatics/training/MSc_GM_2022/CM4-2-command_line/data/dna.txt](https://www.well.ox.ac.uk/bioinformatics/training/MSc_GM_2022/CM4-2-command_line/data/dna.txt) using `wget`.
 2. Find how many lines contains the *DNA motif*  `CGAT` somewhere on that line.

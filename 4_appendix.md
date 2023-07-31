@@ -1,12 +1,12 @@
 # The Command Line - Appendix
 
-### Command Line Applications
+### Command Line 'Applications'
 
-Because of its origins as an operating system, there are many command line tools that behave like windowing applications, such as text editors and various kinds of viewers. The limitations of command line graphics mean they can only show text, and you can only control them using the keyboard.
+Because of its origins as an operating system, there are many command line tools that behave like windowing applications, such as text editors and various kinds of viewers. The limitations of command line graphics mean they can only show text, they (usually) take up the entire terminal screen, and you can only control them using the keyboard.
 
 The `man` command, mentioned earlier, is one such application. Or rather, `man` looks up the correct help pages and sends them to another tool called `info`, which displays them (an example of redirection in practice).
 
-These different applications tend not to be consistent with what keys do, although in most of them `q` will quit and put you back on the regular command line. If you find yourself in such an application and can't work out how to get out of it, in most cases `Control+C` will get you home.
+These different applications tend not to be consistent with what keys do, although in most of them `q` will quit and put you back on the regular command line. If you find yourself in such an application and can't work out how to get out of it, in most cases `Control+c` will probably get you home.
 
 Some useful command line applications are:
 - `top` will show a table of what processes are running on the computer, similar to Task Manager in Windows. Press `q` to quit.
@@ -70,9 +70,16 @@ For example, the **python** programming language comes with a command line calle
 
 Both of these are command line applications you can start from the bash command line. Each of them having a slightly different prompt is a useful guide to knowing what sort of command line you are typing into.
 
+### Wrapping Up
 
-##### Recap Questions
+There's a lot to get to grips with in this course. It's worth bearing in mind that no-one, no matter how practiced with the command line, types perfect commands every time. The process of using the command line is always experimentation, tweaking things until you get the correct result. It's common when starting out to make mistakes, and lots of them, and to end up with commands you've written where you don't fully understand how or why they work. Don't get disheartened by this. Sometimes all you need is another pair of eyes on the problem to see what's wrong, or for someone to tell you about a useful command you hadn't encountered before then.
+
+#### Questions to Think About
 
 1. You are writing quite a complicated series of commands joined by `|` symbols. When you run it, instead of seeing output, you are left with blank lines you can type into. What do you think might have gone wrong? How might you return to the prompt?
-2. From context, what do you think **standard output** and **standard error* might refer to in the context of the command line?
-3. 
+2. From context, what do you think **standard output** and **standard error* might refer to with respect to the command line?
+3. If you encountered the functions `head` and `tail` in a different programming language, what would you assume they did?
+4. If you had a large folder of text files, and you wanted to compress them into a single compressed file, but only if those files didn't contain the word 'error', how might you approach it?
+5. 
+
+Model answers to these, and the recap questions, are given in the next section.
