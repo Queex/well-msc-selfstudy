@@ -60,24 +60,24 @@ You will need administrator permissions to install WSL. If you don't have those 
 Multiple-choice questions:
 
 1. The most common UNIX-style shell is:
-   1. zsh
-   2. bash
-   3. Powershell
-   4. Terminal
+    1. zsh
+    2. bash
+    3. Powershell
+    4. Terminal
 2. You can only use the UNIX-style command line on Linux computers.
-   1. True
-   2. False
+    1. True
+    2. False
 3. Compared to using a graphical user interface, the command line is:
-   1. slower
-   2. always faster
-   3. sometimes faster
+    1. slower
+    2. always faster
+    3. sometimes faster
 4. What is best practice when using the command line:
-   1. Only ever have one terminal window open
-   2. Only do tasks you could also accomplish using the GUI
-   3. Make your commands as cryptic and difficult to understand as possible
-   4. Keep a record of the commands you have used
+    1. Only ever have one terminal window open
+    2. Only do tasks you could also accomplish using the GUI
+    3. Make your commands as cryptic and difficult to understand as possible
+    4. Keep a record of the commands you have used
 5. The built-in option for a UNIX-like command line on Windows is:
-   1. WSL
-   2. LSW
-   3. WLW
-   4. Command.com
+    1. WSL
+    2. LSW
+    3. WLW
+    4. Command.com

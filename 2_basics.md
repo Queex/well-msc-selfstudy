@@ -44,12 +44,12 @@ The command line has a number of tricks to make it easier and quicker to use. Th
 - Pressing *Control+C* will force the command line to **cancel** the command it is currently executing. Use this if you realise you've executed the wrong command, or if the command line becomes unresponsive.
 - Because of the above, copying and pasting works a little differently.
 - *Control+Shift+C* will copy, and *Control+Shift+V* will paste.
-  - Middle-click will also paste. 
-  - On platforms other than WSL, highlighting any text with the mouse will copy it to the clipboard.
-  - There are other ways to copy and paste, some of which are inconsistent between OSes, which is a mess.
+    - Middle-click will also paste. 
+    - On platforms other than WSL, highlighting any text with the mouse will copy it to the clipboard.
+    - There are other ways to copy and paste, some of which are inconsistent between OSes, which is a mess.
 - The command line keeps a (long) list of the most recent commands you have entered. You can use the up and down arrow keys to skip backwards and forwards through this **history**, to execute the same command again, or alter it slightly to fix a mistake.
 - When you press the tab key, the command line will attempt to complete what you are typing, based on the commands it knows and the files available. If you've typed enough for the **tab completion** to be unique, the rest of it will be filled in. If there are multiple possibilities, it will fill in as much as it can.
-  - Pressing tab a second time will make the command line show you a list of the possible further completions. You can use this to view the possibilities, and to work out what letters you can type next to get the full tab completion you want
+    - Pressing tab a second time will make the command line show you a list of the possible further completions. You can use this to view the possibilities, and to work out what letters you can type next to get the full tab completion you want
 
 ### Directories
 

@@ -123,15 +123,19 @@ For example:
 `$ cp myfile*.txt another_directory/`
 
 This will look for every file in the working directory that starts with 'myfile' and ends with '.txt', no matter how many of them there might be. It would match any of the following files, if they existed:
+
 - myfile1.txt
 - myfile2.txt
 - myfile169.txt
 - myfile_and_only_my_file_so_hands_off.txt
 - myfile.txt
+  
 It would not match any of the following:
+
 - this_is_myfile.txt
 - myfil.txt
 - myfile.txt.gz
+  
 Command line tools know how to treat these groups of files sensibly. In the above example, all matching files will be copied into the directory `another_directory`.
 
 You can even use the `*` all by itself, to match every file. For example, if you wanted to remove all the files in a particular directory:
