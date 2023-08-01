@@ -1,0 +1,129 @@
+<h1>The Command Line - The Basics</h1>
+<h2>I have a Unix-like terminal, now what?</h2>
+<p>These examples assume you are using bash for the command line, but should steer clear of situations where the small difference between UNIX-like shells matter.</p>
+<h3>The Command Prompt</h3>
+<p>When you log in, you will usually see the 'message of the day'. This was more of a thing back when these messages were changed regularly with news about the computing facilities. The meaningful part is the command prompt:</p>
+<p><code>$</code></p>
+<p>This is what the command line shows when it is ready to receive input.</p>
+<p>Once you type a command and press Enter, the command line will execute it, display any output, and when it is finished it will show you the prompt again. If the processing takes a long time, it can be a while before you get back to the prompt.</p>
+<p>It's common in tutorials like this to include this prompt in the examples of commands, <strong>but you do not need to type it</strong>. It's there as a reminder that the example is for the command line.</p>
+<p>Try the command:</p>
+<p><code>$ echo "Look at me"</code></p>
+<p>(Remember you don't have to type the $)</p>
+<p>The <code>echo</code> command simply echoes input text back as output.</p>
+<p>The command line is <strong>case sensitive</strong>, that is, capitalisation matters. It's usual for everything to be in lower case, both commands and file names, to help avoid errors. If you accidentally type:</p>
+<p><code>$ Echo "Look at me"</code></p>
+<p>You will see an error similar to:</p>
+<pre><code>Command 'Echo' not found, did you mean:
+  command 'echo' from deb coreutils (8.32-4.1ubuntu1)
+Try: sudo apt install &lt;deb name&gt;
+</code></pre>
+<p>This is telling you that the system does not know any command called <code>Echo</code>. It then helpfully looks to see if any similarly-named commands exist, that you don't have installed. This is useful when you know you need a command but don't know which package to install to get it. It is less useful when it's just a typing error and the command you wanted is already installed.</p>
+<p>All commands are a special type of file (most of them are hidden deep in the guts of the operating system). When you download a new tool you need, it will exist as a file as well (possibly with a few directories containing examples, help documents, supporting files and so on).</p>
+<h3>Useful tricks</h3>
+<p>The command line has a number of tricks to make it easier and quicker to use. These are useful not just to do things faster when you're comfortable with the command line, but to do things faster while you're learning, so it's good to start using them right away.</p>
+<ul>
+<li>Pressing <em>Control+C</em> will force the command line to <strong>cancel</strong> the command it is currently executing. Use this if you realise you've executed the wrong command, or if the command line becomes unresponsive.</li>
+<li>Because of the above, copying and pasting works a little differently.</li>
+<li><em>Control+Shift+C</em> will copy, and <em>Control+Shift+V</em> will paste.<ul>
+<li>Middle-click will also paste. </li>
+<li>On platforms other than WSL, highlighting any text with the mouse will copy it to the clipboard.</li>
+<li>There are other ways to copy and paste, some of which are inconsistent between OSes, which is a mess.</li>
+</ul>
+</li>
+<li>The command line keeps a (long) list of the most recent commands you have entered. You can use the up and down arrow keys to skip backwards and forwards through this <strong>history</strong>, to execute the same command again, or alter it slightly to fix a mistake.</li>
+<li>When you press the tab key, the command line will attempt to complete what you are typing, based on the commands it knows and the files available. If you've typed enough for the <strong>tab completion</strong> to be unique, the rest of it will be filled in. If there are multiple possibilities, it will fill in as much as it can.<ul>
+<li>Pressing tab a second time will make the command line show you a list of the possible further completions. You can use this to view the possibilities, and to work out what letters you can type next to get the full tab completion you want</li>
+</ul>
+</li>
+</ul>
+<h3>Directories</h3>
+<p>Files on computers are stored in a nested series of <strong>directories</strong> (or folders). When working on the command line, you are 'in' a specific folder, and commands are run in that context.</p>
+<p>On some platforms, this <strong>working directory</strong> appears before the prompt symbol, so you don't forget where you are.</p>
+<p>Try the command:</p>
+<p><code>$ pwd</code></p>
+<p>This stands for 'print working directory'. Very short abbreviations for commands is common in bash.</p>
+<p>You'll see what is called an <strong>absolute path</strong> to your working directory. If you compare this with what appears before the prompt, you'll see that only the last part of the absolute path is shown, for brevity.</p>
+<p>When you first log in, your working directory is probably your <strong>home directory</strong>. This is a directory on the system that's exclusively for your use, similar to 'My Documents' on windows..</p>
+<p>Try the command:</p>
+<p><code>$ cd ..</code></p>
+<p>This stands for 'change directory'. Don't worry about what the '..' means yet. This command is used to navigate the directory structure, changing your working directory as you go. The command you just ran has changed to one directory 'up'.</p>
+<p>Repeat the command:</p>
+<p><code>$ pwd</code></p>
+<p>You can see that the last directory in the chain is no longer there.</p>
+<h3>Special symbols</h3>
+<p>The '/' symbol is used to separate the directory names as you work through the tree. <strong>Absolute paths</strong> all start with a '/', to say that they begin at the very top of the tree.</p>
+<p>There is also something called a <strong>relative path</strong>, which starts from your current working directory. Relative paths do not start with a '/'.</p>
+<p>The special character '.' represents the current directory. <code>./somefolder</code> is equivalent to <code>somefolder</code>, is also equivalent to <code>./././somefolder</code>.</p>
+<p>The special character '..' represents the parent directory. You used this with the <code>cd</code> command, earlier. This is very useful, as you can use it to move up the directory structure without having to use an absolute path.</p>
+<p>Another important special character is <code>~</code> (tilde). This is a shorthand for the absolute path to your home directory.</p>
+<p><code>$ cd ~</code></p>
+<p>will take you back to your home directory. You can also use it as part of a longer absolute path, for example: <code>~/some_folder/some_file.txt</code></p>
+<p>The last important special character is <code>#</code>. This is used to create comments. The <code>#</code> symbol, and everything after it on the same line, is ignored. This lets you type free text in amongst your commands. This is most useful in scripts (which are discussed in a later section).</p>
+<h2>Other simple commands</h2>
+<p>Here are some other simple commands you can try:</p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>What it does</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ls</code></td>
+<td>List files in a directory, or a file or files you specify. Defaults to the working directory.</td>
+<td><code>ls /etc/</code></td>
+</tr>
+<tr>
+<td><code>cat</code></td>
+<td>Show the contents of a text file.</td>
+<td><code>cat ~/.bashrc</code></td>
+</tr>
+<tr>
+<td><code>cp</code></td>
+<td>Make a copy of a file in a new location. If you end the destination in a directory, the new file is in that directory with the same name.</td>
+<td><code>cp ~/.bash_history bash_history2</code></td>
+</tr>
+<tr>
+<td><code>mv</code></td>
+<td>Move a file to a new location. Works like cp, except the original file is removed.</td>
+<td><code>mv bash_history2 bash_history_copy</code></td>
+</tr>
+<tr>
+<td><code>rm</code></td>
+<td>Removes a file. <strong>You will not be asked if you are sure you want to delete the file.</strong> Important operating system files are generally protected from accidental removal.</td>
+<td><code>rm bash_history_copy</code></td>
+</tr>
+<tr>
+<td><code>mkdir</code></td>
+<td>Create a new directory.</td>
+<td><code>mkdir new_directory</code></td>
+</tr>
+<tr>
+<td><code>rmdir</code></td>
+<td>Removes an entire directory. Fails if the directory is not empty.</td>
+<td><code>rmdir new_directory</code></td>
+</tr>
+<tr>
+<td><code>wc</code></td>
+<td>Counts the lines, words and letters in a file.</td>
+<td><code>wc the_dictionary.txt</code></td>
+</tr>
+<tr>
+<td><code>grep</code></td>
+<td>Searches for a snippet of text in a file, showing all the lines that contain that text.</td>
+<td><code>grep alias .bashrc</code></td>
+</tr>
+</tbody>
+</table>
+<p>You can see that with these simple tools, you can manage files and inspect them. However, you might have noticed that we've not mentioned any way to create a file yet! We'll cover that after these recap exercises.</p>
+<h4>Recap Questions</h4>
+<ol>
+<li>If the command line appears to be hanging, what keyboard shortcut would you use to try and get back to the command prompt?</li>
+<li>What symbol can you use as shorthand for your home directory?</li>
+<li>How many levels up from your current directory does the path <code>../../../</code> refer to?</li>
+<li>You tried to copy a line of text from the terminal, but instead the command line seemed to execute an empty command. Can you work out what has happened?</li>
+<li>What two commands could you use, one after the other, to replicate the use of the <code>mv</code> command?</li>
+</ol>

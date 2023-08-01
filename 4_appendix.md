@@ -9,6 +9,7 @@ The `man` command, mentioned earlier, is one such application. Or rather, `man` 
 These different applications tend not to be consistent with what keys do, although in most of them `q` will quit and put you back on the regular command line. If you find yourself in such an application and can't work out how to get out of it, in most cases `Control+c` will probably get you home.
 
 Some useful command line applications are:
+
 - `top` will show a table of what processes are running on the computer, similar to Task Manager in Windows. Press `q` to quit.
 - `more` allows you to read a text file. It's more convenient than `cat` because you can scroll back and forth through the file. It's also common to use `|` to redirect text output into `more` to look through it more easily. Press `q` to quit.
 - `less` performs the same task as `more`, but behaves slightly differently. It's a matter of personal taste which people prefer to use. The name is more programmer humour. Press `q` to quit.
@@ -49,6 +50,7 @@ Although some of these tools follow the usual paradigm of processing the files l
 When working with bioinformatics tools, it's important to be mindful of storage and memory requirements – you don't want to be embarrassed by having nowhere to keep your data once it's been processed!
 
 The computing side of bioinformatics merits its own course, but as a brief overview of some of the tools:
+
 - **BEDtools** manipulates lists of genomic regions; looking for overlaps, intersections and so on.
 - **BLAST** compares sequences to genomes references.
 - **featureCounts** collates which features are observed in an aligned data set, and how frequently they appear.
@@ -57,6 +59,7 @@ The computing side of bioinformatics merits its own course, but as a brief overv
 - **Salmon** is another alignment tool.
 - **SAMtools** manipulates files containing mapped sequences, providing summaries and output in a variety of formats.
 - **STAR** is yet another alignment tool.
+  
 This is far from a comprehensive list; and does not include visual tools, even when they are run from the command line. It does not matter if you are unsure how these fit together, or what 'alignment' is , at this stage. The world of bioinformatic software is wide and complicated and it's best to explore specific tools when you have a definite need to use them.
 
 

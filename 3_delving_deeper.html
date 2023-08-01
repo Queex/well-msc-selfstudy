@@ -1,0 +1,156 @@
+<h1>The Command Line - Delving Deeper</h1>
+<h3>Redirection</h3>
+<p>Many command line tools process text files line by line, meaning they don't need to store the entire file in memory at once. This also means that you can chain them together, making the output of one the input of another. Long chains of commands like this are fairly common when using the command line. Because of this, many commands that handle a file can also take input via something called <strong>standard input</strong>, i.e. the output of the previous command in the chain.</p>
+<p>The <strong>pipe</strong> symbol '|' tells the command line to take the output from one command and use it as input for the next.</p>
+<p>Here's an example:</p>
+<p><code>$ ls -a | grep bash | wc</code></p>
+<p>Let's break down what it does. <code>ls</code> shows the files in the working directory (ignore the <code>-a</code> for now). This list is then searched for any lines containing the word <code>bash</code> using <code>grep</code>. Finally, <code>wc</code> counts the lines, words and letters in that result.</p>
+<p>A common way of working with the command line is to build up these chains of commands piece by piece, seeing what the output is at each stage before deciding what command to add next. This is easier than trying to write it all at once, seeing it doesn't work, and then trying to work out which command went awry.</p>
+<p>The other main type of redirection uses the symbol <code>&gt;</code>. Instead of sending the output to another command, this puts the output in a file. <strong>This will overwrite any file by that name that existed before.</strong></p>
+<p><code>$ ls -a | grep bash &gt; some_files.txt</code></p>
+<p>will put the list of files found by <code>ls</code> and <code>grep</code> and write them to a file called <code>some_files.txt</code>.</p>
+<p>You can now see what the file contains with</p>
+<p><code>$ cat some_files.txt</code></p>
+<p>Sometimes you want to add text to a file without replacing what's already there. You can do this using <code>&gt;&gt;</code> to redirect to the file.</p>
+<p><code>$ ls /mnt &gt;&gt; some_files.txt</code></p>
+<p>You can check that more lines have been added to the file:</p>
+<p><code>$ cat some_files.txt</code></p>
+<h2>Arguments and Flags</h2>
+<p>Some of the earlier examples show commands used with <strong>arguments</strong>. Commands can take a number of arguments after the command itself. The order of these commands is important. The number of arguments, and what they are used for, varies depending on the command – more on how to deal with that later.</p>
+<p>Looking at the example for <code>cp</code>:</p>
+<p><code>cp ~/.bashhistory bashhistory2</code></p>
+<p>The first argument is <code>~/.bashhistory</code>, which for <code>cp</code> is the file to copy. The second argument is <code>bashhistory2</code>, which is the destination.</p>
+<p>The command line works out which words are commands and which are arguments by looking for spaces. For this reason, if you need to put a space in an argument, you have to enclose the argument in double quotes. The <code>echo</code> example, earlier, shows this in practice:</p>
+<p><code>$ echo "Look at me"</code></p>
+<p>There is one argument here, which <code>echo</code> will interpret as <code>Look at me</code>, without the quotes.</p>
+<p>Commands also use <strong>flags</strong> (also known as <strong>options</strong>). A flag is an instruction to the command to behave in a certain way, or to expect certain arguments. Flags are usually single characters, preceded by a <code>-</code>. Because they are single characters, you can also put them together after a single <code>-</code>.</p>
+<p><code>$ ls -alh</code></p>
+<p>For <code>ls</code>, the flag <code>-a</code> says to show <em>all</em> files. The convention for making files hidden in UNIX is to make the file name start with <code>.</code> (a full stop/period). <code>ls</code>, by default won't show you these files (which includes <code>.</code>, the directory itself, and <code>..</code>, the directory one level up).</p>
+<p>The flag <code>-l</code> says to present the output as a list (i.e. a table), with columns containing extra information about the file. This includes the date the file was last modified, and the size of the file. The flag <code>-h</code> modifies the list so that the file sizes are made 'human readable', rather than listed in bytes.</p>
+<p>Although this is a very terse and efficient system, it relies on you memorising (or looking up) which flag you need to set. Many commands have longer versions of these flags, with <code>--</code> before them, which helps make the line more readable. For example:</p>
+<p><code>$ ls --all</code></p>
+<p>Is the same as </p>
+<p><code>$ ls -a</code></p>
+<p>When you use these longer flags, they need to be separated. So the equivalent of the earlier example is:</p>
+<p><code>$ ls --all -l --human-readable</code></p>
+<p>In this case there's no long version equivalent of <code>-l</code>.</p>
+<p>Some flags themselves require arguments, which can be specified in one of a number of different ways:</p>
+<p><code>$ ls --time=ctime</code></p>
+<p><code>$ samtools sort -T /tmp/aln.sorted -o aln.sorted.bam aln.bam</code></p>
+<p>In the first example, the long flag <code>--time</code> requires an argument, given after the <code>=</code>. In the second example, the <code>-T</code> and the <code>-o</code> are specifying what the following arguments are to be used for. This second approach avoids having to give arguments in a set order. If these different approaches seem annoyingly inconsistent, it's because they are. The approach used was at the whim of whoever wrote the command.</p>
+<h3>Getting help</h3>
+<p>The best resource for finding out how to use a command is a web search: the command name together with 'bash' is most likely to find something useful. The command line has its own methods of showing help, but they are designed to be viewed in the terminal and it's more convenient to have them in a different window.</p>
+<p>Some commands will provide more information if you use the <code>--help</code> or <code>-h</code> flag. Almost all commands have something called a 'man page' (short for manual) that goes into detail how to use the command.</p>
+<p>For example:</p>
+<p><code>$ man ls</code></p>
+<p>You can scroll through the help with arrow keys, and quit back to the command line proper with 'q'. The one advantage this method has over a web search is that you are guaranteed to get correct information for the precise version of the command you have on your system, for occasions where command line tools have different versions.</p>
+<p>What none of these methods do very well is help you find commands you don't know about, but which would be useful for the task you're trying to do. A web search for your problem is your best bet, if you're trying to do something but you don't know where to start.</p>
+<p>Here is a list of other commonly-used commands you might find useful. You can look up the details on how to use them using <code>man</code> or a search engine.</p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>head</code></td>
+<td>Shows the first few lines of a file.</td>
+</tr>
+<tr>
+<td><code>tail</code></td>
+<td>Shows the last few lines of a file. You can combine <code>head</code> and <code>tail</code> using pipes to pull out a specific block of lines from a file.</td>
+</tr>
+<tr>
+<td><code>touch</code></td>
+<td>Changes the accessed and modified time on a file, by default to the current time. If the file doesn't exist, create a blank file.</td>
+</tr>
+<tr>
+<td><code>which</code></td>
+<td>Tells you the absolute path of the command you give as an argument. This is useful when there might be multiple versions of the same command available on the system and you need to know exactly which one is used by default.</td>
+</tr>
+<tr>
+<td><code>sort</code></td>
+<td>Sorts the lines of a file.</td>
+</tr>
+<tr>
+<td><code>uniq</code></td>
+<td>Prints unique lines in a file (i.e. removing duplicates). It does not work exactly as you might expect, only removing duplicates on sequential lines. To get the truly unique output, you need to use <code>sort</code> first.</td>
+</tr>
+<tr>
+<td><code>wget</code></td>
+<td>Short for 'web get', this tool downloads a file from the internet, by default into the current directory. Note that on some systems, most notably computing clusters, the computer you are using might not have an outside internet connection.</td>
+</tr>
+<tr>
+<td><code>ssh</code></td>
+<td>Short for 'secure shell', this logs you into a different computer, based on the address you give it.</td>
+</tr>
+<tr>
+<td><code>scp</code></td>
+<td>Short for 'secure copy', this allows you to copy files between different computers, providing you have a valid log in for the other computer. There are a number of other protocols for transferring files, but some have fallen into disuse and <code>scp</code> is the most widely supported.</td>
+</tr>
+<tr>
+<td><code>gzip</code> / <code>gunzip</code></td>
+<td>Turns a file into a compressed version of itself (with the <code>.gz</code> file extension), or turns a compressed file back into a regular one. Unlike the compression tools you might be used to, this only works on single files, and you cannot put multiple files or directories into a single compressed file using <code>gzip</code> alone. <strong>By default, it will delete the input file after compressing or decompressing it.</strong></td>
+</tr>
+<tr>
+<td><code>tar</code></td>
+<td>This takes a number of files and puts them all into the same file (sometimes called an archive - the command is actually named as an abbreviation of 'tape archive'). <code>tar</code> can also handle <code>.gz</code> compression itself, with the <code>-z</code> flag, making <code>gzip</code> somewhat redundant.. It's common to see files for download with the combined extension <code>.tar.gz</code>. Unlike <code>gzip</code>, you use the same command to get the files back out again, just with a different flag, and <code>tar</code> does not delete the input file(s). <code>tar</code> also does not behave nicely if you don't specify the output file using the flag <code>-f</code>. At this point, you might have some inkling as to how programmers got that way, if this is what they have to deal with.</td>
+</tr>
+<tr>
+<td><code>cut</code></td>
+<td>Print certain columns from a text file that's a table of data.</td>
+</tr>
+<tr>
+<td><code>awk</code></td>
+<td>Can do similar things to <code>cut</code>. It has its own language to specify in more detail how to process the file, which can be tough to learn, but it is more versatile than <code>cut</code>.</td>
+</tr>
+<tr>
+<td><code>tr</code></td>
+<td>Short for 'translate'. It lets you replace characters with other characters. This is useful to fix inconsistent data formats or remove characters that another tool can't handle.</td>
+</tr>
+<tr>
+<td><code>sed</code></td>
+<td>Short for 'stream editor'. Similar to <code>tr</code>, but it also supports more than single characters allowing for more complex replacements.</td>
+</tr>
+</tbody>
+</table>
+<h3>Globbing</h3>
+<p>Sometimes you want to refer to a number of files without having to type their full names. UNIX shells offer a feature called <strong>globbing</strong> (no, really) to help with this. It uses special characters that the operating system will expand into <em>every</em> matching file.</p>
+<p>The most often used globbing symbol is <code>*</code>. This means 'any number of characters in the filename, or even none'. </p>
+<p>For example:</p>
+<p><code>$ cp myfile*.txt another_directory/</code></p>
+<p>This will look for every file in the working directory that starts with 'myfile' and ends with '.txt', no matter how many of them there might be. It would match any of the following files, if they existed:</p>
+<ul>
+<li>myfile1.txt</li>
+<li>myfile2.txt</li>
+<li>myfile169.txt</li>
+<li>myfile_and_only_my_file_so_hands_off.txt</li>
+<li>myfile.txt</li>
+</ul>
+<p>It would not match any of the following:</p>
+<ul>
+<li>this_is_myfile.txt</li>
+<li>myfil.txt</li>
+<li>myfile.txt.gz</li>
+</ul>
+<p>Command line tools know how to treat these groups of files sensibly. In the above example, all matching files will be copied into the directory <code>another_directory</code>.</p>
+<p>You can even use the <code>*</code> all by itself, to match every file. For example, if you wanted to remove all the files in a particular directory:</p>
+<p><code>$ rm some_directory/*</code></p>
+<p>has got you covered. You can use it to match directories as well as files:</p>
+<p><code>$ rm directory_number_*/unwanted_file.log</code></p>
+<p>will remove the file with the same name from all those folders at once. You can even combine those two ideas:</p>
+<p><code>$ rm */unwanted_file.log</code></p>
+<p>Be aware that because <code>rm</code> does not ask for confirmation when it removes files, using it with <code>*</code> can be <em>very</em> dangerous. Not in terms of damaging the operating system, because that's protected (or at least it should be), but because you might accidentally delete a lot of files you really, really wanted to keep.</p>
+<p><code>*</code> is called a 'wildcard', and this approach to handling multiple files has spread far and wide because it is so useful. There are other wildcards available, but <code>*</code> is the most important.</p>
+<h4>Recap Questions</h4>
+<p>Let's try a short practical task, using the commands we've covered. This will likely require going back to the help for the commands you were using, some trial and error and some lateral thinking.</p>
+<ol>
+<li>Download the file: <a href="https://www.well.ox.ac.uk/bioinformatics/training/MSc_GM_2022/CM4-2-command_line/data/dna.txt">https://www.well.ox.ac.uk/bioinformatics/training/MSc_GM_2022/CM4-2-command_line/data/dna.txt</a> using <code>wget</code>.</li>
+<li>Find how many lines contains the <em>DNA motif</em>  <code>CGAT</code> somewhere on that line.</li>
+<li>Find the line numbers for those lines.</li>
+<li>To find the <em>reverse complement</em> of DNA sequence, you have to swap all Cs and Gs, and all As and Ts, and print the sequence backwards. Can you print the reverse complements of the lines in the above file? Looking up the help for the <code>rev</code> command will be useful.</li>
+<li>How many lines in the reverse complement contain the motif <code>CGAT</code>?</li>
+</ol>
+<p>The last couple of questions are actually quite tricky, so don't get disheartened if you can't work them out!</p>

@@ -52,9 +52,9 @@ Commands also use **flags** (also known as **options**). A flag is an instructio
 
 `$ ls -alh`
 
-For `ls`, the flag `-a` says to show *all* files. The convention for making files hidden in UNIX is to make the file name start with `.`. `ls`, by default won't show you these files (which includes `.`, the directory itself, and `..`, the directory one level up).
+For `ls`, the flag `-a` says to show *all* files. The convention for making files hidden in UNIX is to make the file name start with `.` (a full stop/period). `ls`, by default won't show you these files (which includes `.`, the directory itself, and `..`, the directory one level up).
 
-The flag `-l` says to present the output as a list (i.e. a table), with columns containing extra information about the file. This includes the date the file was last modified, and the size of the file. The flag '-h' modifies the list so that the file sizes are made 'human readable', rather than listed in bytes.
+The flag `-l` says to present the output as a list (i.e. a table), with columns containing extra information about the file. This includes the date the file was last modified, and the size of the file. The flag `-h` modifies the list so that the file sizes are made 'human readable', rather than listed in bytes.
 
 Although this is a very terse and efficient system, it relies on you memorising (or looking up) which flag you need to set. Many commands have longer versions of these flags, with `--` before them, which helps make the line more readable. For example:
 
@@ -155,7 +155,9 @@ Be aware that because `rm` does not ask for confirmation when it removes files, 
 `*` is called a 'wildcard', and this approach to handling multiple files has spread far and wide because it is so useful. There are other wildcards available, but `*` is the most important.
 
 #### Recap Questions
-Let's try a short practical task, using the commands we've covered.
+
+Let's try a short practical task, using the commands we've covered. This will likely require going back to the help for the commands you were using, some trial and error and some lateral thinking.
+
 1. Download the file: [https://www.well.ox.ac.uk/bioinformatics/training/MSc_GM_2022/CM4-2-command_line/data/dna.txt](https://www.well.ox.ac.uk/bioinformatics/training/MSc_GM_2022/CM4-2-command_line/data/dna.txt) using `wget`.
 2. Find how many lines contains the *DNA motif*  `CGAT` somewhere on that line.
 3. Find the line numbers for those lines.

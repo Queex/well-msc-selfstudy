@@ -28,11 +28,11 @@ The command line is **case sensitive**, that is, capitalisation matters. It's us
 `$ Echo "Look at me"`
 
 You will see an error similar to:
-```
-Command 'Echo' not found, did you mean:
-  command 'echo' from deb coreutils (8.32-4.1ubuntu1)
-Try: sudo apt install <deb name>
-```
+
+    Command 'Echo' not found, did you mean:
+      command 'echo' from deb coreutils (8.32-4.1ubuntu1)
+    Try: sudo apt install <deb name>
+
 This is telling you that the system does not know any command called `Echo`. It then helpfully looks to see if any similarly-named commands exist, that you don't have installed. This is useful when you know you need a command but don't know which package to install to get it. It is less useful when it's just a typing error and the command you wanted is already installed.
 
 All commands are a special type of file (most of them are hidden deep in the guts of the operating system). When you download a new tool you need, it will exist as a file as well (possibly with a few directories containing examples, help documents, supporting files and so on).
@@ -90,7 +90,9 @@ The special character '.' represents the current directory. `./somefolder` is eq
 The special character '..' represents the parent directory. You used this with the `cd` command, earlier. This is very useful, as you can use it to move up the directory structure without having to use an absolute path.
 
 Another important special character is `~` (tilde). This is a shorthand for the absolute path to your home directory.
+
 `$ cd ~`
+
 will take you back to your home directory. You can also use it as part of a longer absolute path, for example: `~/some_folder/some_file.txt`
 
 The last important special character is `#`. This is used to create comments. The `#` symbol, and everything after it on the same line, is ignored. This lets you type free text in amongst your commands. This is most useful in scripts (which are discussed in a later section).
@@ -106,7 +108,7 @@ Here are some other simple commands you can try:
 | `cat` | Show the contents of a text file. | `cat ~/.bashrc` |
 | `cp` | Make a copy of a file in a new location. If you end the destination in a directory, the new file is in that directory with the same name. | `cp ~/.bash_history bash_history2` |
 | `mv` | Move a file to a new location. Works like cp, except the original file is removed. | `mv bash_history2 bash_history_copy` |
-| `rm` | Removes a file. **You will not be asked if you are sure you want to delete the file.** Important operating system files are generally protected from accidental removal. | `rm bash_history_copy`
+| `rm` | Removes a file. **You will not be asked if you are sure you want to delete the file.** Important operating system files are generally protected from accidental removal. | `rm bash_history_copy` |
 | `mkdir` | Create a new directory. | `mkdir new_directory` |
 | `rmdir` | Removes an entire directory. Fails if the directory is not empty. | `rmdir new_directory` |
 | `wc` | Counts the lines, words and letters in a file. | `wc the_dictionary.txt` |
@@ -115,6 +117,7 @@ Here are some other simple commands you can try:
 You can see that with these simple tools, you can manage files and inspect them. However, you might have noticed that we've not mentioned any way to create a file yet! We'll cover that after these recap exercises.
 
 #### Recap Questions
+
 1. If the command line appears to be hanging, what keyboard shortcut would you use to try and get back to the command prompt?
 2. What symbol can you use as shorthand for your home directory?
 3. How many levels up from your current directory does the path `../../../` refer to?
