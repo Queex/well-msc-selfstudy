@@ -40,12 +40,12 @@
 
 ## Appendix
 
-1. The likeliest problem is that you forgot to specify a file early on in the chain, and one of the commands that was expecting input from that file is instead waiting for other input. Using `Control+c` should break out of the command and return you to the prompt.
-2. If **standard input** is what some commands can accept from `|`, it makes sense that **standard output** is the equivalent for the output of a command; what you usually see printed on the command line. **standard error** would, presumably, be something similar, but just for messages about errors. This is, in fact, the case! Although the command line will print both **standard output** and **standard error** to the terminal window. Sometimes, they can even tussle, and you get the text from both interspersed, line by line!
+1. The likeliest problem is that you forgot to specify a file early on in the chain, and one of the commands you planned to use that file is instead waiting for other input – probably from you typing it. Using `Control+c` should break out of the command and return you to the prompt.
+2. If **standard input** is what some commands can accept from `|`, it makes sense that **standard output** is the equivalent for the output of a command; what you usually see printed on the command line. **standard error** would, presumably, be something similar, but just for messages about errors. This is, in fact, the case! The command line will print both **standard output** and **standard error** to the terminal window, even though they are technically different streams. Sometimes they can even tussle, and you get the text from both interspersed, line by line!
 3. It's sensible to assume that they show the start or end of a file or piece of data repsectively, although the specifics might require you to study the help for them to use them properly.
 4. Some variation on `$ grep -lv error * | tar -czf non_errors` will get the job done.
    1. This uses `grep` with globbing (`*`), searching every file in the current directory.
-   2. The `-l` flag says to report the filename for any files where there is a match, and the `-v` flag says to invert matching, so only files *without* that text will be reported.
-   3. `tar` has the flags `-c` to create the archive, `-z` to use `gzip` on the archive and `-f` to specify the file name for the archive, which will get the relevant sufffixes applied to create the file `non_errors.tar.gz`.
-
+   2. The `-l` flag says to only report the filename for any files where there is a match, and the `-v` flag says to invert matching, so only files *without* that text will be reported.
+   3. `tar` has the flags `-c` to create the archive, `-z` to use `gzip` on the archive and `-f` to specify the file name for the archive, which will get the relevant suffixes applied to create the file `non_errors.tar.gz`.
+5. Implementing `uniq` in this way means that the command only needs to remember two lines of the file at once, which keeps to the command line principle of processing text line by line. Finding truly unique lines would mean storing all the unique lines so far, which could take up too much memory if the files are large enough. The `sort` command can't help but have a larger memory footprint because sorting can't be done truly line by line. Leaving the two commands separate is convenient for occasions when you know your input file is already in an order where identical lines wil be adjacent.
    

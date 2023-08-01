@@ -64,11 +64,11 @@ This is far from a comprehensive list; and does not include visual tools, even w
 
 Apart from bash and its analogues, command lines can be found in many other places. Even modern releases of Windows have a version of the old MS-DOS command line. However, every command line is its own beast, with its own quirks. It's common to have some commands named the same as the equivalent commands in other systems, but it's not guaranteed.
 
-Many programming languages also have a command line where you can enter lines of code directly. This is very useful to test out lines of code to make sure it does what it's supposed to before including it in your program.
+Many programming languages also have a command line where you can enter lines of code directly. This is very useful to test out code to make sure it does what it's supposed to before including it in your program.
 
-For example, the **python** programming language comes with a command line called 'IDLE', and it uses the prompt `>>>`. The R statistical language runs as its own command line, and uses the prompt `>`.
+For example, the **python** programming language comes with a command line called 'IDLE', and it uses the prompt `>>>`. The **R** statistical language runs as its own command line, and uses the prompt `>`.
 
-Both of these are command line applications you can start from the bash command line. Each of them having a slightly different prompt is a useful guide to knowing what sort of command line you are typing into.
+Both of these are command line applications you can start from the bash command line. Each of them having a slightly different prompt is a useful aid to knowing which sort of command line you are typing into.
 
 ### Wrapping Up
 
@@ -76,10 +76,12 @@ There's a lot to get to grips with in this course. It's worth bearing in mind th
 
 #### Questions to Think About
 
+Remember you can look at the help files for commands to find tweaks to how they behave.
+
 1. You are writing quite a complicated series of commands joined by `|` symbols. When you run it, instead of seeing output, you are left with blank lines you can type into. What do you think might have gone wrong? How might you return to the prompt?
 2. From context, what do you think **standard output** and **standard error* might refer to with respect to the command line?
 3. If you encountered the functions `head` and `tail` in a different programming language, what would you assume they did?
 4. If you had a large folder of text files, and you wanted to compress them into a single compressed file, but only if those files didn't contain the word 'error', how might you approach it?
-5. 
+5. Why do you think the `uniq` command only removes duplicates in consecutive lines?
 
 Model answers to these, and the recap questions, are given in the next section.
