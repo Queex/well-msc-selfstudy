@@ -44,6 +44,7 @@ When using a **high performance computing** cluster or a **cloud computing** pro
 The UNIX terminal for Windows requires Windows 10 or above. The full installation instructions are available on-line, but here's a brief guide.
 
 You will need administrator permissions to install WSL. If you don't have those permissions, contact your IT team to install it for you.
+
 1. Start a Windows command prompt as an administrator. To do this, type 'command' into the start menu search box. Don't left-click on the '**Command Prompt**' app!
 2. Instead, right-click and select 'run as administrator'.
 3. You will be asked to allow the app to make changes to your device – click yes.
