@@ -2,7 +2,7 @@
 
 ## Errors
 
-There are many kinds of error that can cause your program to crash, and these are divided into two types.
+There are many kinds of error that can cause your program to crash. If you write any code, you can expect to encounter them often. Errors are divided into two main types.
 
 ### Syntax Errors
 
