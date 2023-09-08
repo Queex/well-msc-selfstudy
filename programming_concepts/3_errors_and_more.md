@@ -2,7 +2,7 @@
 
 ## Errors
 
-There are many kinds of error that can cause your program to crash. If you write any code, you can expect to encounter them often. Errors are divided into two main types.
+There are many kinds of error that can cause your program to crash. If you write any code, you can expect to encounter them often. Errors are divided into three main types.
 
 ### Syntax Errors
 
@@ -14,7 +14,7 @@ These are problems that prevent your code from running at all. You've broken one
 
 ### Silent Errors
 
-Silent errors are different in that they don't cause your program to crash. Instead, there are errors introduced into the data, that don't cause more serious problems. These are a particularly insidious kind of error because unless you check your program's output against what you know it should produce, you might not even notice them. Silent errors in one part of your code can then go on to cause runtime errors in another part of the code. If you find yourself muttering "where did that zero come from, it should be impossible", you have encountered a silent error.
+Silent errors are different in that they don't cause your program to crash. Instead, they are errors introduced into the data, that don't cause more serious problems. These are a particularly insidious kind of error because unless you check your program's output against what you know it should produce, you might not even notice them. Silent errors in one part of your code can then go on to cause runtime errors in another part of the code. If you find yourself muttering "where did that zero come from, it should be impossible", you have encountered a silent error.
 
 ### Error Messages
 
@@ -26,11 +26,11 @@ Another important tool, where the language provides one, is something called a *
 
 It's inconvenient for a program to crash at every little problem. Programming languages provide a way for you to intercept when something goes wrong and fail gracefully in a way that doesn't bring the program to a sudden halt. This is called **error handling**. When you see a message box that says something like "Cannot find file, click OK to continue", that's error handling. It's most useful in situations where there is a lot of user input, and hence a lot of opportunity for user mistakes.
 
-Even in other circumstances, it can be useful for you to handle errors in order to provide more detailed information as to what went wrong. Programming languages have ways for you to create your own errors, which are then handled like any other runtime error, including when it comes to the error message given to a user. A "divide by 0" error is less informative than a "class size must be greater than 0" error. Code that deliberately creates an error, for this reason or others, is said to be **raising** an error.
+Even in other circumstances, it can be useful for you to handle errors in order to provide more detailed information as to what went wrong. Programming languages have ways for you to create your own errors, which are then handled like any other runtime error, including when it comes to the error message given to a user. A "divide by 0" error is less informative than a "group size must be greater than 0" error. Code that deliberately creates an error, for this reason or others, is said to be **raising** an error.
 
 ## Best Practises
 
-It's a common misconception to think that when you write code, you are writing it for the computer. It's true that you are writing instructions for the computer, but are many different ways to write a program that produces the same output. When you are writing code, you are writing code for *whoever needs to look at it in future*. This could be you, months or years down the line, it could be a colleague picking up your project where you left it, or it could be a stranger reviewing your code for accuracy. The over-riding concern, when writing code, is *clarity*. You want to make it as easy as possible to understand what the code is doing and why.
+It's a common misconception to think that when you write code, you are writing it for the computer. It's true that you are writing *instructions* for the computer, but there are many different ways to write a program that produces the same output. When you are writing code, you are writing code for *whoever needs to look at it in future*. This could be you, months or years down the line, it could be a colleague picking up your project where you left it, or it could be a stranger reviewing your code for accuracy. The over-riding concern, when writing code, is *clarity*. You want to make it as easy as possible to understand what the code is doing and why. 
 
 
 
