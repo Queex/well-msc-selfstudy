@@ -32,8 +32,4 @@ Even in other circumstances, it can be useful for you to handle errors in order 
 
 It's a common misconception to think that when you write code, you are writing it for the computer. It's true that you are writing *instructions* for the computer, but there are many different ways to write a program that produces the same output. When you are writing code, you are writing code for *whoever needs to look at it in future*. This could be you, months or years down the line, it could be a colleague picking up your project where you left it, or it could be a stranger reviewing your code for accuracy. The over-riding concern, when writing code, is *clarity*. You want to make it as easy as possible to understand what the code is doing and why. 
 
-
-
 Programming languages have conventions that fall outside the formal rules of the language. This is often called a language's **style**, and covers things like the preferred way to name variables and functions, how to use capitalisation, how to format the code, and so on. They can also extend to more esoteric programming ideas you probably don't need to worry about.
-
-## 
