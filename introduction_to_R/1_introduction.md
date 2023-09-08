@@ -46,3 +46,5 @@ There are also tools that allow you to integrate R code (and other programming l
 Regular R users tend to stick with whichever solution they feel most comfortable and productive using. This is fine, because the code itself does not rely on any features of an IDE or equivalent to run properly, only R itself. The code you wrote for a Jupyter Notebook document can be copy-pasted into someone else's base R command line and run just fine (assuming they have installed any libraries your code needs).
 
 #### Recap Questions
+
+todo...
