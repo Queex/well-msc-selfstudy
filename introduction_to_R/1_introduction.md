@@ -39,11 +39,27 @@ R is, at its heart, a command line driven language and the default interface ref
 
 However, there are options for prettier and more functional interfaces.
 
-Many IDEs (integrated developer environments) support R code, although sometimes this requires installing add-ons. Even when the IDE understands R syntax, you will probably need to download R separately in order to run that code. **R Studio** is an IDE created specifically for working with R, and is recommended if you want the convenience of an IDE without obscuring what's actually going on with R.
+Many IDEs (integrated developer environments) support R code, although sometimes this requires installing add-ons. Even when the IDE understands R syntax, you will probably need to download R separately in order to run that code. **R Studio** is an IDE created specifically for working with R, and is recommended if you want the convenience of an IDE and do not already have a preferred one you use.
 
 There are also tools that allow you to integrate R code (and other programming languages) with written text in a single document. **Jupyter Notebook** is one example. These tools work by marking certain parts of the document as code in a specific language, and offer a reasonable compromise between seeing the live results of your R code and keeping code and non-code together.
 
 Regular R users tend to stick with whichever solution they feel most comfortable and productive using. This is fine, because the code itself does not rely on any features of an IDE or equivalent to run properly, only R itself. The code you wrote for a Jupyter Notebook document can be copy-pasted into someone else's base R command line and run just fine (assuming they have installed any libraries your code needs).
+
+## Download and Install R
+
+For the rest of this course, it is best to try out commands yourself, and experiment with R's commands to get a feel for it.
+
+R might be already be installed on your computer already. If not, you can download it from [cran.r-project.org](https://cran.r-project.org).
+
+For Linux systems, a user with root permissions can install it from the package manager with:
+
+`$ sudo apt install r-base`
+
+or
+
+`$ sudo yum install R`
+
+Depending on the package manager.
 
 #### Recap Questions
 
