@@ -13,7 +13,7 @@ R has three different ways to show output on the console.
 
 - When it prints output normally, it is prefaced with a decorator similar to `[1]`. This is because R works with *vectors*, or arrays of values, which can wrap over many lines of output in its interface. This decorator lets you know the index of the first entry on that particular line, to make it easier to count along if you need to. This output is only printed when R has completely finished the command it was running.
 - R can also print any text while it is running a command. This is usually done to show progress when running a command that takes a while to execute.
-- When R encounters an error, it prints the error message. On some interfaces this message is in a different colour to other output, to help differentiate it.
+- When R encounters an error, it prints the error message. With some interfaces this message is in a different colour to other output, to help differentiate it.
 
 ## R Objects and Sessions
 
@@ -29,7 +29,7 @@ This also means that you can organise different projects into different working 
 
 ### Arithmetic
 
-You can, if you want, use R like a calculator.
+You can, if you want, use R as a calculator.
 
 ```
 > 3 + 4
@@ -90,6 +90,28 @@ The object `x` will only change value if you assign a different value to it.
 [1] 11
 ```
 
+#### Managing Objects
+
+You can see what objects you have created with the `ls()` function (we'll talk about functions in more detail a little later):
+
+```
+> ls()
+[1] "x"
+```
+
+You can remove objects using the `rm()` function:
+
+```
+> y <- 12
+> ls()
+[1] "x" "y"
+> rm(y)
+> ls()
+[1] "x"
+```
+
+Some interfaces that wrap around R allow you to see the object store in real time, including inspecting specific objects to view their contents.
+
 #### More On Object Names
 
 The names of R's objects are case sensitive. That means you will see the following if you capitalise `X`:
@@ -105,6 +127,8 @@ Object names can contain numbers, as long as the name does not start with a numb
 
 You cannot create two objects with the same name. If you try, you will over-write the first.
 
+You *can* create objects with the same name as existing R functions, but you should avoid doing so. You cannot crea objects with the name name as one of R's special keywords.
+
 ### The Continuation Prompt
 
 In most command line languages, if you leave a command unfinished you will get an error. R, however, can detect some instances of this and will give you a different prompt: `+`. This is the continuation prompt, and you can finish typing your command on that next line. R will join the lines together when it tries to execute it.
@@ -116,7 +140,7 @@ In most command line languages, if you leave a command unfinished you will get a
 [1] 11
 ```
 
-While this is often useful, sometimes you will see that your mistake was earlier in the line, and you can't fix the mistake just by adding more to the end of the line. You can use *Control+C* or *Escape* to break out of the continuation prompt and get back to the regular one.
+While this is often useful to help write code that spans multiple lines, sometimes you will see that your mistake was earlier in the line, and you can't fix the mistake just by adding more to the end of the line. You can use *Control+C* or *Escape* to break out of the continuation prompt and get back to the regular one.
 
 ### Functions
 
@@ -171,6 +195,8 @@ my_exp_function <- function(arg1, arg2=10){
 }
 ```
 
+(This is shown as it would appear in a script, without prompts)
+
 The `my_exp_function <-` part is assigning the function to that name, as you would with a data object.
 
 `function` is an R function, used to create a function, and it's hopefully not as confusing to understand as it was to type out.
@@ -185,7 +211,35 @@ We create an object inside this function. Objects created inside functions in th
 
 ### Logic and If Statements
 
+The comparison and equality operators in R do not result in number but in logical values. In R, these are represented by the special values `TRUE` and `FALSE`. They can abbreviated as `T` and `F`.
 
+```
+> 2 < 3
+[1] TRUE
+```
+
+The table earlier gives you two logical operators: `&` for 'and' and `|` for 'or'.
+
+#### If Statements
+
+As in many programming languages, you may need to write code that is only executed when certain conditions are met. The structure that R uses looks like this:
+
+```
+> if(x > 10) {
++   "Big"
++ } else {
++   "Small"
++ }
+[1] "Big"
+```
+
+Here we are taking advantage of the continuation prompt to write this over multiple lines so it's easier to read.
+
+The keyword `if` kicks things off. Inside the round brackets there must be an expression that evaluates to a single logical value. In the next section we will discuss how to use R's vectors, but this part of an `if` statement is one place where you must have only a single value.
+
+If that expression evaluates to `TRUE`, then the code inside the curly brackets will be run. Otherwise, it will not.
+
+The follow-up keyword `else` marks a second block, which will be run when the condition evaluates to `FALSE`.
 
 #### Recap Questions
 

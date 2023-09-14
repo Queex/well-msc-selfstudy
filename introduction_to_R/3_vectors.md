@@ -61,23 +61,6 @@ This command extracts the 1st, 2nd and 4th elements of the vector `x`, which are
 
 Many functions operate on vectors in order to do certain tasks in parallel. Leveraging R's approach to vectors is an important part of using the language effectively.
 
-#### Alternative Indices
-
-Some R objects have named elements; for example the columns of a table of data. When using R's `[]` indexing, you can use names, where they exist, instead of numerical indices.
-
-```
-> y <- 1:5
-> names(y) <- c("a","b","c","d","e")
-> y
-a b c d e 
-1 2 3 4 5 
-> y["a"]
-a 
-1 
-```
-
-
-
 #### Vectors and Operators
 
 R can perform arithmetic on vectors (and matrices, which we won't cover here), but it doesn't follow the mathematical rules of matrix arithmetic. Instead, it performs the operation pairwise on elements in the vectors in sequence.
@@ -112,13 +95,81 @@ The warning does not stop R from producing output.
 
 **Because R will never give an error for these types of length mismatches, they are a common cause of difficult to diagnose bugs.**
 
-In the special case where one of the vectors is of length one, then that value is recycled for the length of the longer vector.
+In the special case where one of the vectors is of length one, then that value is repeated for the length of the longer vector.
 
 ```
 > 1:5 + 2
 [1] 3 4 5 6 7
 ```
 
-### More About Assignment
+#### Alternative Indices
+
+Some R objects have named elements; for example the columns of a table of data. When using R's `[]` indexing, you can use names, where they exist, instead of numerical indices.
+
+```
+> y <- 1:5
+> names(y) <- c("a","b","c","d","e")
+> y
+a b c d e 
+1 2 3 4 5 
+> y["a"]
+a 
+1 
+```
+
+You can also use logical values as indices. In this case, `TRUE` is interpreted to mean include the element in the output, and `FALSE` to not include it. The logical vector used as the index will be repeated if necessary, to the full length of the vector.
+
+```
+> y[c(TRUE, FALSE)]
+a c e 
+1 3 5 
+```
+
+#### Vectors and Comparators
+
+Comparators, like other operators in R, consider vectors element by element. This means that `==` and `>` might not behave how you would expect:
+
+```
+> c(1, 1) == c(1, 2)
+[1]  TRUE FALSE
+> c(1, 1) < c(1, 2)
+[1] FALSE  TRUE
+```
 
 
+
+all any %in%
+
+shortcut && ||
+
+#### Vectors and Assignment
+
+R's approach to vecotrs and indices also extends to assignment. You've already created a vector with a single assignment statement. Like most programming languages, you can also assign to specific elements in a vector.
+
+```
+> x[2] <- 2
+> x
+[1] 1 2 5 7 9
+```
+
+R also allows you to assign to multiple elements at once in a similar way:
+
+```
+> x[4:5] <- c(1,2)
+> x
+[1] 1 2 5 1 2
+```
+
+In fact, when you do this, the indices you assign to do not even have to be grouped together. You can even combine several of the principles above into a line like:
+
+```
+> x[x==1] <- 9
+> x
+[1] 9 2 5 9 2
+```
+
+The `x==1` part produces a logical vector, which is `TRUE` when that element of `x` equals 1. Using a logical vector as an index means R will only look at those positions in the vector. And because this is an assignment, only those values will get changed. What they get changed to is a vector of length 1 (i.e. a number), which is repeated as much as is needed to match the number of elements that are being assigned to.
+
+At this point, you might understand why R is sometimes considered something of an oddity among programming languages.
+
+#### For Loops

@@ -51,7 +51,7 @@ For the rest of this course, it is best to try out commands yourself, and experi
 
 R might be already be installed on your computer already. If not, you can download it from [cran.r-project.org](https://cran.r-project.org).
 
-For Linux systems, a user with root permissions can install it from the package manager with:
+For Linux systems, a user with root permissions can install it with:
 
 `$ sudo apt install r-base`
 
@@ -60,6 +60,10 @@ or
 `$ sudo yum install R`
 
 Depending on the package manager.
+
+## Learn by Doing!
+
+The easiest way to get a feel for R, or any programming language, is to start messing about with it. The examples in the following sections demonstrate specific features, but it's a clever idea to try your own as you work through the examples. "I wonder what will happen if I do this..." is a good state of mind to have. No-one is going to scold you for generating an error!
 
 #### Recap Questions
 
