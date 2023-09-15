@@ -61,7 +61,7 @@ or
 
 Depending on the package manager.
 
-## Learn by Doing!
+## Learn By Doing!
 
 The easiest way to get a feel for R, or any programming language, is to start messing about with it. The examples in the following sections demonstrate specific features, but it's a clever idea to try your own as you work through the examples. "I wonder what will happen if I do this..." is a good state of mind to have. No-one is going to scold you for generating an error!
 

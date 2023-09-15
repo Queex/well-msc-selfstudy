@@ -232,6 +232,17 @@ In fact, when you do this, the indices you assign to do not even have to be grou
 
 The `x == 1` part produces a logical vector, which is `TRUE` when that element of `x` equals 1. Using a logical vector as an index means R will only look at those positions in the vector. And because this is an assignment, only those values will get changed. What they get changed to is a vector of length 1 (i.e. a number), which is repeated as much as is needed to match the number of elements that are being assigned to.
 
+This principle also carries over into functions, as well as indices. We used the `names()` function in an earlier example:
+
+```
+> y <- 1:5
+> names(y) <- c("a","b","c","d","e")
+> names(y)
+[1] "a" "b" "c" "d" "e"
+```
+
+By itself, this function just tells you what names, if any, have been given to a vector. But it can also be used as part of an assignment, as seen here. Instead of just reporting those names, this assignment sets them. Not every R function behaves this way (in fact, it would not make sense for most of them!), but some do.
+
 At this point, you might understand why R is sometimes considered something of an oddity among programming languages.
 
 #### For Loops
