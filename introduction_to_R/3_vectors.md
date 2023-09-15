@@ -249,11 +249,11 @@ Another important programming idea is that of a for loop. A for loop allow you y
 > z
 ```
 
-The variable `z` starts at zero, and is increased by one for each element of `y` that's greater than 10. R's `for()` syntax requires a variable for the loop, in this case `i`, and a vector of values for that variable to take. In this example, that vector was the sequence `1:20`, but it can be any vector. Then the curly brackets enclose the block of code that will be run at each iteration.
+The variable `z` starts at zero, and is increased by one for each element of `y` that's greater than 10. R's `for()` syntax requires a variable for the loop, in this case `i`, and a vector of values for that variable to take, separated by the keyword `in`. In this example, that vector was the sequence `1:20`, but it can be any vector. Then the curly brackets enclose the block of code that will be run at each iteration.
 
-The key idea is that the block is run once for each value that `i` takes.
+The key idea is that the block is run once for each value that `i` takes. The first time through, it has the value 1, the next time 2, and so on.
 
-Although for loops exist in R, you will seldom encounter them because R's vector-centric approach means they are usually unnecessary. If you compare this for loop example to the last example for assignment, above, you can probably intuit how there's a simper way to calculate the intended `z`.
+Although for loops exist in R, you will seldom encounter them because R's vector-centric approach means they are usually unnecessary. If you compare this for loop example to the last example for assignment, above, you can probably intuit that there's a simpler way to calculate the intended `z`.
 
 ```
 > y <- 1:20
