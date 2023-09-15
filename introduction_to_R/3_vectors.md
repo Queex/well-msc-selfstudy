@@ -127,7 +127,7 @@ a c e
 
 #### Vectors and Comparators
 
-Comparators, like other operators in R, consider vectors element by element. This means that `==` and `>` might not behave how you would expect:
+Comparators, like other operators in R, consider vectors element by element. This means that `==` and `<` and the others might not behave how you would expect:
 
 ```
 > c(1, 1) == c(1, 2)
@@ -136,11 +136,73 @@ Comparators, like other operators in R, consider vectors element by element. Thi
 [1] FALSE  TRUE
 ```
 
+There are two functions it's useful to know about that take a vector of `TRUE` and `FLASE` values as their argument: `any()` and `all()`.
 
+```
+> all(c(TRUE, FALSE, TRUE))
+[1] FALSE
+> all(c(TRUE, TRUE, TRUE))
+[1] TRUE
+> any(c(TRUE, FALSE, FALSE))
+[1] TRUE
+> any(c(FALSE, FALSE, FALSE))
+[1] FALSE
+```
 
-all any %in%
+As you can see, they each turn a logical vector into a single value, with the value intuitive to their names.
 
-shortcut && ||
+When you want to compare two vectors and make sure they are the same, there's a more direct function that does what you need:
+
+```
+> identical(c(1, 1, 3), c(1, 2, 3))
+[1] FALSE
+> identical(c(1, 2, 3), c(1, 2, 3))
+[1] TRUE
+```
+
+There is a subtle trap you can fall into if using `all()` to replicate `identical()`:
+
+```
+> all(c(1, 2, 1, 2) == c(1, 2))
+[1] TRUE
+> identical(c(1, 2, 1, 2), c(1, 2))
+[1] FALSE
+```
+
+R's habit of repeating vectors comes to ruin your day again! `identical()` is a stronger test because it also checks the length of the two vectors. It actually also compares data types (which we'll get to later) and is the preferred way to check that two objects or expressions are, well, identical. This family of functions, that compare vectors and return a single logical value, are particularly handy when used in combination with the `if()` statement, which expects a single logical value.
+
+You might be wondering how you can test if a value is in a vector. R's tool for this is a special operator: `%in%`.
+
+```
+> 1 %in% c(1, 2, 3)
+[1] TRUE
+```
+
+Of course, this operator can also be used with a vector on the left hand side. The result in that case is a vector, of the same length as the left hand side, with a `TRUE` value for each element that was present in the vector on the right hand side.
+
+```
+> c(1, 3, 5, 7) %in% c(1, 2, 3)
+[1]  TRUE  TRUE FALSE FALSE
+```
+
+#### Vectors and Logical Operators
+
+R's primary operators for 'and' and 'or', `&` and `|`, also consider vectors element by element. This is very useful for tasks like checking a vector for multiple conditions:
+
+```
+> y <- c(1, 2, 3, 4, 5, 6)
+> y < 5 & y > 2
+[1] FALSE FALSE  TRUE  TRUE FALSE FALSE
+```
+
+If you're familiar with other programming languages, you are probably aware of the idea of 'shortcut and' and 'shortcut or'. These differ from the regular kind by stopping and returning once they know what the final result will be. If the left hand side of a shortcut and is False, then it doesn't need to check the right hand side. The shortcut versions are the most commonly-used version in most programming languages. However, in R, where you're dealing primarily with vectors, they are less useful.
+
+Worse, in R, these shortcut operators will *ignore* every element of a vector except the first, and do so completely silently. This can be the source of very frustrating errors.
+
+```
+> y < 5 && y > 2
+[1] FALSE
+```
 
 #### Vectors and Assignment
 
@@ -163,13 +225,51 @@ R also allows you to assign to multiple elements at once in a similar way:
 In fact, when you do this, the indices you assign to do not even have to be grouped together. You can even combine several of the principles above into a line like:
 
 ```
-> x[x==1] <- 9
+> x[x == 1] <- 9
 > x
 [1] 9 2 5 9 2
 ```
 
-The `x==1` part produces a logical vector, which is `TRUE` when that element of `x` equals 1. Using a logical vector as an index means R will only look at those positions in the vector. And because this is an assignment, only those values will get changed. What they get changed to is a vector of length 1 (i.e. a number), which is repeated as much as is needed to match the number of elements that are being assigned to.
+The `x == 1` part produces a logical vector, which is `TRUE` when that element of `x` equals 1. Using a logical vector as an index means R will only look at those positions in the vector. And because this is an assignment, only those values will get changed. What they get changed to is a vector of length 1 (i.e. a number), which is repeated as much as is needed to match the number of elements that are being assigned to.
 
 At this point, you might understand why R is sometimes considered something of an oddity among programming languages.
 
 #### For Loops
+
+Another important programming idea is that of a for loop. A for loop allow you you perform the same (or similar) task over a vector of values. It's easiest to see an example:
+
+```
+> y <- 1:20
+> z <- 0
+> for(i in y){
++   if(i > 10){
++     z <- z + 1
++   }
++ }
+> z
+```
+
+The variable `z` starts at zero, and is increased by one for each element of `y` that's greater than 10. R's `for()` syntax requires a variable for the loop, in this case `i`, and a vector of values for that variable to take. In this example, that vector was the sequence `1:20`, but it can be any vector. Then the curly brackets enclose the block of code that will be run at each iteration.
+
+The key idea is that the block is run once for each value that `i` takes.
+
+Although for loops exist in R, you will seldom encounter them because R's vector-centric approach means they are usually unnecessary. If you compare this for loop example to the last example for assignment, above, you can probably intuit how there's a simper way to calculate the intended `z`.
+
+```
+> y <- 1:20
+> z <- y > 10
+> z
+ [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE
+[13]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+> z <- length(z[z == TRUE])
+> z
+[1] 10
+```
+
+The interim value of `z` is shown for clarity. The expression `z[z == TRUE]` shows only the `TRUE` elements of `z`. We can then use the `length()` function, which does exactly what you expect, to find how many elements of `y` were greater than 10.
+
+There is actually an even quicker (and sneakier) way of performing this task, which we'll come back to later.
+
+### Recap Questions
+
+todo...
