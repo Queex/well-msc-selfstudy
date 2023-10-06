@@ -127,7 +127,7 @@ Object names can contain numbers, as long as the name does not start with a numb
 
 You cannot create two objects with the same name. If you try, you will over-write the first.
 
-You *can* create objects with the same name as existing R functions, but you should avoid doing so. You cannot crea objects with the name name as one of R's special keywords.
+You *can* create objects with the same name as existing R functions, but you should avoid doing so. You cannot create objects with the name name as one of R's special keywords.
 
 ### The Continuation Prompt
 
